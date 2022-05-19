@@ -24,7 +24,7 @@ const App: Component = () => {
   const [todo, setTodo] = createSignal('');
   const [todos, setTodos] = createSignal<ITodo[]>(readTodosFromLocalStorage());
 
-  let todoInput: HTMLInputElement | undefined;
+  let todoInput: HTMLTextAreaElement | undefined;
 
   const addTodo = (todo: string) => {
     setTodos([
@@ -71,22 +71,39 @@ const App: Component = () => {
 
   return (
     <div class={styles.App}>
-      <h2>Daily Todo Tracker</h2>
+      <h2
+        style={{
+          color: '#b318f0',
+        }}
+      >
+        Daily Todo Tracker
+      </h2>
 
-      <h3>
+      <h3
+        style={{
+          color: '#b318f0',
+        }}
+      >
         Date: <span>{new Date().toLocaleDateString()}</span>
       </h3>
 
       <form>
-        <input
+        <textarea
+          class={styles.todoInput}
           ref={todoInput}
-          type='text'
           name='todo'
           // @ts-ignore
           onInput={(e) => setTodo(e.target.value)}
           value={todo()}
+          rows={10}
+          placeholder='What do you need to do today?'
         />
-        <button type='button' onClick={() => addTodo(todo())}>
+        <button
+          class={styles.addTodoButton}
+          type='button'
+          onClick={() => addTodo(todo())}
+          disabled={!todo()}
+        >
           Add
         </button>
       </form>

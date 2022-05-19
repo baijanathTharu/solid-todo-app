@@ -33,6 +33,7 @@
 }
 
 .todoItem {
+  font-size: 18px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -49,4 +50,24 @@
 .strikeThrough {
   text-decoration: line-through;
   color: red;
+}
+
+.todoInput {
+  width: 300px;
+  height: 30px;
+  border: 1px solid #b318f0;
+  border-radius: 5px;
+  padding: 10px;
+  margin: 10px auto;
+  resize: vertical;
+}
+
+.addTodoButton {
+  width: 100px;
+  height: 30px;
+  border: 1px solid #b318f0;
+  border-radius: 5px;
+  background-color: #b318f0;
+  color: #fff;
+  margin: 10px auto;
 }
