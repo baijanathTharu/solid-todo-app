@@ -30,7 +30,7 @@ const App: Component = () => {
 
   return (
     <div class={styles.App}>
-      <h2>my todo app</h2>
+      <h2>Solid Todo</h2>
       <form>
         <input
           ref={todoInput}
@@ -45,9 +45,12 @@ const App: Component = () => {
         </button>
       </form>
 
-      <ul>
+      <ul class={styles.todoList}>
         {todos().map((todo: string) => (
-          <li>{todo}</li>
+          <li class={styles.todoItem}>
+            <span>{todo}</span>
+            <button>Delete</button>
+          </li>
         ))}
       </ul>
     </div>
