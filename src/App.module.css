@@ -50,18 +50,3 @@
   text-decoration: line-through;
   color: red;
 }
-
-.completeButton {
-  background-color: #b318f0;
-  color: white;
-}
-
-.undoButton {
-  background-color: #c06021;
-  color: white;
-}
-
-.deleteButton {
-  background-color: #e95a40;
-  color: white;
-}

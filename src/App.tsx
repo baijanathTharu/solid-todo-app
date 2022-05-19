@@ -1,4 +1,7 @@
 import { Component, createSignal } from 'solid-js';
+import { AiFillDelete } from 'solid-icons/ai';
+import { FaSolidUndo } from 'solid-icons/fa';
+import { IoCloudDone } from 'solid-icons/io';
 
 import styles from './App.module.css';
 
@@ -96,30 +99,24 @@ const App: Component = () => {
               {todo.text}
             </span>
             {!todo.isCompleted ? (
-              <button
-                class={styles.completeButton}
-                type='button'
+              <IoCloudDone
                 onClick={() => completeTodo(todo.id)}
-              >
-                Done
-              </button>
+                size='24'
+                color='#00b300'
+              />
             ) : (
-              <button
-                class={styles.undoButton}
-                type='button'
+              <FaSolidUndo
+                color='#00b300'
+                size='24'
                 onClick={() => undoTodo(todo.id)}
-              >
-                Undo
-              </button>
+              />
             )}
-            {/* delete todo */}
-            <button
-              class={styles.deleteButton}
-              type='button'
+
+            <AiFillDelete
+              color='#ff0000'
               onClick={() => deleteTodo(todo.id)}
-            >
-              Delete
-            </button>
+              size='24'
+            />
           </li>
         ))}
       </ol>
