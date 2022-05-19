@@ -63,11 +63,26 @@
 }
 
 .addTodoButton {
-  width: 100px;
+  width: 140px;
   height: 30px;
   border: 1px solid #b318f0;
   border-radius: 5px;
   background-color: #b318f0;
   color: #fff;
   margin: 10px auto;
+}
+
+.clearTodosButton {
+  width: 140px;
+  height: 30px;
+  border: 1px solid red;
+  border-radius: 5px;
+  background-color: red;
+  color: #fff;
+  margin: 10px auto;
+}
+
+.btnContainer {
+  display: flex;
+  gap: 10px;
 }

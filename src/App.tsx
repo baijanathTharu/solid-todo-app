@@ -20,6 +20,10 @@ function writeTodosToLocalStorage(todos: ITodo[]) {
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
+function clearTodosInLocalStorage() {
+  localStorage.setItem('todos', `[]`);
+}
+
 const App: Component = () => {
   const [todo, setTodo] = createSignal('');
   const [todos, setTodos] = createSignal<ITodo[]>(readTodosFromLocalStorage());
@@ -69,6 +73,13 @@ const App: Component = () => {
     }
   };
 
+  const clearAll = () => {
+    if (window.confirm('Are you sure you want to clear all the todos?')) {
+      setTodos([]);
+      clearTodosInLocalStorage();
+    }
+  };
+
   return (
     <div class={styles.App}>
       <h2
@@ -98,14 +109,23 @@ const App: Component = () => {
           rows={10}
           placeholder='What do you need to do today?'
         />
-        <button
-          class={styles.addTodoButton}
-          type='button'
-          onClick={() => addTodo(todo())}
-          disabled={!todo()}
-        >
-          Add
-        </button>
+        <div class={styles.btnContainer}>
+          <button
+            class={styles.clearTodosButton}
+            type='button'
+            onClick={clearAll}
+          >
+            Clear All
+          </button>
+          <button
+            class={styles.addTodoButton}
+            type='button'
+            onClick={() => addTodo(todo())}
+            disabled={!todo()}
+          >
+            Add
+          </button>
+        </div>
       </form>
 
       <ol class={styles.todoList}>
